@@ -1,0 +1,26 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 520px;
+  height: 40px;
+}
+
+.task-name {
+  color: #6739d2;
+  margin-left: 16px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.remove-task-button {
+  border-radius: 4px;
+  background-color: #2960ec;
+  color: white;
+  margin-right: 16px;
+  font-size: 16px;
+  height: 32px;
+  width: 80px;
+  cursor: pointer;
+}
