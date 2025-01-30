@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../public/fonts/Poppins-Light.ttf");
+}
+
+body {
+  background-color: #2a2a2a;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.page-title-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.page-title {
+  font-size: 48px;
+  font-weight: medium;
+  color: #2960ec;
+}
