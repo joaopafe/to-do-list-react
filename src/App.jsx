@@ -30,6 +30,10 @@ function App() {
     );
   };
 
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id != taskId));
+  };
+
   return (
     <>
       <div className="page-title-section">
@@ -38,7 +42,11 @@ function App() {
 
       <TaskInput onAddTask={addTask} />
 
-      <TaskList tasks={tasks} onUpdateTask={updateTask} />
+      <TaskList
+        tasks={tasks}
+        onUpdateTask={updateTask}
+        onDeleteTask={deleteTask}
+      />
     </>
   );
 }

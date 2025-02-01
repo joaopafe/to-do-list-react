@@ -1,4 +1,4 @@
-const Task = ({ task, onUpdate }) => {
+const Task = ({ task, onUpdate, onDelete }) => {
   return (
     <li className="task">
       <span
@@ -10,7 +10,9 @@ const Task = ({ task, onUpdate }) => {
         {task.name}
       </span>
 
-      <button className="remove-task-button">Remover</button>
+      <button onClick={onDelete} className="remove-task-button">
+        Remover
+      </button>
     </li>
   );
 };

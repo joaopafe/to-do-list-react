@@ -1,6 +1,6 @@
 import Task from "./Task";
 
-const TaskList = ({ tasks, onUpdateTask }) => {
+const TaskList = ({ tasks, onUpdateTask, onDeleteTask }) => {
   console.log(tasks);
 
   return (
@@ -10,6 +10,7 @@ const TaskList = ({ tasks, onUpdateTask }) => {
           key={task.id}
           task={task}
           onUpdate={() => onUpdateTask(task.id)}
+          onDelete={() => onDeleteTask(task.id)}
         />
       ))}
     </ul>
