@@ -1,23 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(
+    JSON.parse(localStorage.getItem("tasks")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (newTask) => {
-    setTasks([
-      ...tasks,
-      {
-        id: Date.now(),
-        name: newTask,
-        done: false,
-      },
-    ]);
+    const newTaskObj = {
+      id: Date.now(),
+      name: newTask,
+      done: false,
+    };
+
+    setTasks((prevTasks) => [...prevTasks, newTaskObj]);
   };
 
-  console.log(tasks);
+  const updateTask = (taskId) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, done: !task.done } : task
+      )
+    );
+  };
 
   return (
     <>
@@ -27,7 +38,7 @@ function App() {
 
       <TaskInput onAddTask={addTask} />
 
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} onUpdateTask={updateTask} />
     </>
   );
 }

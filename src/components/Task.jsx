@@ -1,12 +1,17 @@
-const Task = ({ task }) => {
+const Task = ({ task, onUpdate }) => {
   return (
-    <div className="task">
-      <div id={`${task.id}`} className="task-name">
-        {task.done ? <del>task.name</del> : task.name}
-      </div>
+    <li className="task">
+      <span
+        id={`${task.id}`}
+        className="task-name"
+        onClick={onUpdate}
+        style={{ textDecoration: task.done ? "line-through" : "none" }}
+      >
+        {task.name}
+      </span>
 
       <button className="remove-task-button">Remover</button>
-    </div>
+    </li>
   );
 };
 

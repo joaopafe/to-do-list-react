@@ -1,12 +1,18 @@
 import Task from "./Task";
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, onUpdateTask }) => {
+  console.log(tasks);
+
   return (
-    <div className="task-list">
+    <ul className="task-list">
       {tasks.map((task) => (
-        <Task key={task.id} task={task} />
+        <Task
+          key={task.id}
+          task={task}
+          onUpdate={() => onUpdateTask(task.id)}
+        />
       ))}
-    </div>
+    </ul>
   );
 };
 
